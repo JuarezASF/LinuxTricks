@@ -1,0 +1,17 @@
+C >> Control
+M >> Alt
+
+# Comandos Básicos para janelas
+C-x-2   >> Split horizontal
+C-x-3   >> Split vertical
+C-x-o   >> muda de janela
+C-x-0   >> Feixa janela
+C-x-k	>> Mata buffer
+
+C-x-C-f >> Abre arquivo
+
+M-x >> Executa comando
+
+# terminais
+:shel	>> Terminal com suporte aos recurso de edição do emacs
+:term	>> Terminal puro /*Comandos que começam C-x troca por C-c*/

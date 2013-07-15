@@ -1,0 +1,34 @@
+# legenda
+C >> Control
+M >> Alt
+: >> Comando para ser executado com M-x
+
+# Comandos Básicos para edição:
+:kill-region 	>> Recortar região selecionada
+C-w		>> Recortar região selecionada
+:yank		>> colar
+C-y		>> colar
+
+C-x-C-s		>> Salva arquivo
+
+:comment-region >> comenta região selecionada de acordo com o modo
+:uncomment-refion >> retira comentários
+
+# Comandos Básicos para janelas
+C-x-2   >> Split horizontal
+C-x-3   >> Split vertical
+C-x-o   >> muda de janela
+C-x-0   >> Feixa janela
+C-x-k	>> Mata buffer
+
+C-x-C-f >> Abre arquivo
+
+M-x >> Executa comando por escrito
+
+# terminais
+:shel		>> Terminal com suporte aos recurso de edição do emacs
+:term		>> Terminal puro /*Comandos que começam C-x troca por C-c*/
+:sheel-command 	>> Executa comando direto no terminal
+
+# Magit (Utilitario para controlar o github e svn no emacs)
+:magit-status >> Mostra a situação atual do github

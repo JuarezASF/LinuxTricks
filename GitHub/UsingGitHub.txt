@@ -22,7 +22,7 @@ http://codexico.com.br/blog/linux/tutorial-simples-como-usar-o-git-e-o-github/
 ----------------------
 TUTORIAL BY RAFAEL
 
-criando o repositoria (1ª)
+- criando o repositoria (1ª)
 -criar pasta
 -cd pasta
 -git init 
@@ -44,4 +44,14 @@ criando o repositoria (1ª)
 	git commit -m 'removendo arquivo'
 	git push origins master
  
+-------------------------------------------------------
 
+# Sobrescrevendo as alterações locais:
+git fetch --all
+git reset origin/master # última versão
+
+# Retornando para alguma versão especifica
+git reset "Código do commit"
+
+# Apagar arquivos do github sem apagar na máquina
+git rm --cached "nomeArquivo"
