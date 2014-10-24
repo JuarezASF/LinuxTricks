@@ -1,0 +1,1 @@
+Para achar raízes de um polinômio P, use roots(P)

@@ -1,0 +1,14 @@
+Exemplo de transformada de FOurrier
+*exemplo retirado de
+*	 http://www.allaboutcircuits.com/vol_5/chpt_7/8.html
+**visite para mais exemplos
+
+Vin 1 0 SIN ( 0 1 100)
+
+* change tran card to the following for better Fourier precision
+* .tran 1m 30m .01m     and include .options card:
+* .options itl5=30000
+.tran 1m 30m 
+.plot tran v(1) 
+.fourier 60 v(1)
+.end

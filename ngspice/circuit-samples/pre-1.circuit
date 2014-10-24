@@ -1,0 +1,20 @@
+Circuitos Elétricos 2 - Experimento 7 : filtros III
+
+v1 2 0 DC 0 AC 6 0
+*nome v+ v- AC_type amplitude fase
+
+*v1 1 0 sin(0 3 62.831k)
+*fonte de 10kHz
+*v2 2 1 sin(0 3 31.415k)
+
+c1 3 2 2.627nF
+
+l1 4 3 96.4mH
+
+r1 4 0 2.0k
+
+.ac dec 100 1e0 1e6
+
+*.tran 0.1us 0.1ms 
+*tran dx end
+.end

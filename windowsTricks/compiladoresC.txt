@@ -1,0 +1,6 @@
+Para programar em C você ai precisar de compiladores. Existem duas possibilidades de se
+obter compiladores gnu-like: MinGW cygwin.
+
+O site a seguir ensina a instalá-los.:
+http://www3.ntu.edu.sg/home/ehchua/programming/howto/EclipseCpp_HowTo.html
+Não se esqueça de adicionar o caminho da instalação à variável path.

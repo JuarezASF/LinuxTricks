@@ -1,0 +1,30 @@
+Comandos que podem ser usados para controlar flags e automatizar a mudança de modos:
+
+SF : set flag
+CF : clear flag
+SF? : is flag set?
+CF? : is flag clear?
+
+RAD : seta modo radiano
+DEG : seta modo degree
+
+RECT : seta modo XYV
+CYLIN : seta modo polar
+
+programa para trocar XYZ -> pho, theta:
+<<
+  -15 CF
+  -16 FS? -> X  
+    <<
+    if 'X' then RECT else CYLIN end
+    >>
+>>
+
+programa para trocar RAD -> DEG:
+<<
+  -18 CF
+  -17 FS? -> X  
+    <<
+    if 'X' then DEG else RAD end
+    >>
+>>

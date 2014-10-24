@@ -1,0 +1,24 @@
+HPtalx - HP 50g no Ubuntu 8.10 Linux
+
+Hptalx é um programa para Linux escrito inicialmente por Bruno Barberi Gnecco, prorrogado por Rafael Ostertag e liberado sob a GNU Public License, capaz de conectar a calculadora Hp 50g no seu computador. Com ele você será capaz de transferir e editar os programas da HP, por isso use por sua conta e risco. A sua instalação e uso é bem simples, abaixo seguem os passos que utilizei. 
+
+Instalamos primeiros as dependências necessárias: 
+
+$ sudo apt-get install build-essential libglib2.0-dev libgtk2.0-dev libxml2-dev libsocksd0.dev openbsd-inetd ckermit 
+
+Acesse o site do Hptalx no SourceForge.net(http://hptalx.sourceforge.net/download.shtml) para fazer o download do código fonte.
+
+Caso queira compilar, baixe o fonte, descompacte, entre na pasta onde descompactou e rode os comandos: 
+
+$ ./configure
+$ make
+$ sudo make install
+$ sudo modprobe hp4x 
+
+Para iniciar o Hptalx, aperte Alt+f2 e digite: 
+
+hptalx 
+
+Clique em File-Setup para configurar o tipo de conexão serial ou usb. Plugue a HP no computador e escolha a opção server mode. 
+
+Clique em Connect-Connect ou Ctrl+B para estabelecer a conexão.

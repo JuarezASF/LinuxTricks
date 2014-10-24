@@ -1,0 +1,8 @@
+Para converter unidades usaremos o menu units(-> 6):
+
+-entre com um número da pilha
+-em units, clique leng, por exemplo, e selecione cm
+-entre com zero na pilha
+-selecione a unidade destino
+-clique em '+'
+-that's all folks

@@ -1,0 +1,31 @@
+no windows é só baixar o pacote de :
+ http://www.ctan.org/
+
+e estrair o conteudo do .zip na pasta
+            MiKTeX 2.0/tex/latex
+
+ou algo assim.
+aqui a pasta Miktex 2.9 esta em c: program files(x86)
+
+*mantenha sempre o .zip aqui nessa pasta para que todos tenham os pacotes usados
+
+*no linux :
+
+basicamente instale em:
+
+
+/usr/local/share/texmf/tex/latex/footmisc/
+
+
+se o .zip baixado não tiver os .sty rode o comando os comandos para produzi-lo
+ latex package_nome.ins
+ //ou abra o editor de texto e  compile esse .ins
+ latex package_nome.dtx
+
+atualize a lista de pacotes:
+ cd 	/usr/local/share/texmf/ 
+ sudo mktexlsr
+
+
+*procure o nome do pacote que inclui o que vc quer em http://www.ctan.org/
+*baixe tudo já ompilado em http://ctan.tche.br/install/macros/latex/contrib/

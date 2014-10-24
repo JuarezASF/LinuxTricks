@@ -1,0 +1,11 @@
+Circuitos Elétricos 2 - Experimento 5 : filtros
+
+*v1 1 0 0 AC 2 0
+v1 0 1 sin(0 10 10kHz)
+
+r1 1 2 3.6k
+c1 2 0 1nF
+
+*.ac dec 100 1e-6 1e6
+*.tran 1e-6 2m 
+.end

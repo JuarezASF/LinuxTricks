@@ -1,0 +1,9 @@
+O comando prompt mostra na tela uam mensagem imformando algo ao usuário.
+Bom para usar quando, por exemplo, queremos que o usupario entre com algum dado.
+
+como usar:
+- entre com a mensagem em aspas dulpas (RS + x[sinal de multiplicação])
+- PROMP: pode ser acessado em prg/in
+
+*para sair da mensagem e continuar a execução do programa, pressione CONT
+	-CONT: pode ser acessado com LS + ON (quina esquerda inferior da hp)

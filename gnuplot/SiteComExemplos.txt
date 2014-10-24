@@ -1,0 +1,6 @@
+O site a seguir possui inúmeros exemplos a serem usados com
+o gnuplot:
+
+http://gnuplot.sourceforge.net/demo/
+
+

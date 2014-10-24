@@ -1,0 +1,17 @@
+----------------------------------------------------------
+			sufixos
+----------------------------------------------------------
+Letters immediately following a number that are not scale factors are ignored, and letters im-
+mediately following a scale factor are ignored. Hence, 10, 10V, 10Volts, and 10Hz all represent
+the same number, and M, MA, MSec, and MMhos all represent the same scale factor.
+
+
+suffix	value
+g 	e9
+meg	e6
+k	e3
+m	e-3
+u	e-6
+n	e-9
+p	e-12
+f	e-15

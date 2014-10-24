@@ -1,0 +1,22 @@
+Usando a Transformada de Fourier no NgSpice
+
+-crie a netlsit 
+
+-source netlist.cir
+
+-listing
+
+-run
+
+-fourrier 60 v(1)
+*60 é a frequência fundamental e v(1) o nó a ser analisado por fourrier
+*nesse exemplo serão calculadas as componentes de fourier do sinal v(1)
+nas frequencias de 60, 120, 180, ...540.
+para ver mais sinais defina:
+	set nfreqs = n
+para ter n múltiplos da frequência desejada
+
+
+
+
+

@@ -1,0 +1,22 @@
+Descrição das flags. A medida que vou descobrindo o que elas fazem eu vou colocando aqui:
+
+Flag       Descrição
+03          Quando ativada constantes serão substituidas por números na pila. Ao clicar em pi por exemplo, você verá o
+            seu valor e não o símbolo pi. Eu prefiro deixá-la desativada.
+            
+40-42       Controlam o relógio, auto-explicativo
+
+52          Quando ativada mostra somente uma linha na pilha(deixe-a desativada)
+
+72-73       Controla o tamanho da fonte. Deixe em 'mini' para mostrar o máximo de linhas possíveis
+
+74          Controla em que lado da linha os números serão mostrados. Coloque-os do lado esquerdo para facilidat
+            associar o número desejado com a linha correspondente(facilita operações de pilha)
+
+76          Ative para não ter que confirmar toda vez que for deletar uma variável
+80-82       Controla fonte dos modos de edição, deixe todas ativadas para ver melhor
+
+97-98       Decide se mostra lista na vertical ou na horizontal. Eu preferi deixar na vertical para ver todos os
+            elementos ao mesmo tempo
+            
+117         Controla se os menus serão soft(prefiro esse) ou gráficos(zuado coisa de noob)

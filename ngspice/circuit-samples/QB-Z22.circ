@@ -1,0 +1,17 @@
+Circuitos Elétricos II - Experimento X : Quadripolos
+
+*cálculo de QB para Z22: Fonte 1 em aberto
+
+V1 2 0 DC 5
+
+R1B 1 0 10.029k
+
+R2B 1 2 4.729k
+
+R3B 2 0 10.029k
+
+.tran 1e-6 1e-5
+
+
+
+

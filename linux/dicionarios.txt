@@ -1,0 +1,9 @@
+Alguns programas não permite adicionar dicionários
+manualmente, eles usam os que estão instalados no sistema.
+
+Instale o dicionário pt-br com
+
+sudo apt-get install apell-pt-br
+
+talvez tenha digitado algo errado. então é melhor
+procurar por 'apell'

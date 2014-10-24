@@ -1,0 +1,21 @@
+----------------------------------------------------------
+formas de onda
+----------------------------------------------------------
+
+pulso:
+General form:
+PULSE ( V1 V2 TD TR TF PW PER )
+potencial baixo, alto, delay time, risetime, fall time, pulsw width, periodo
+*delay time é um tempo de atraso que n entendi direito, usar 0.
+*largura do pulso dado por PW
+*período dado por PER, em geral usar PER = 2*PW
+
+
+Examples:
+VIN 3 0 PULSE(−1 1 2NS 2NS 2NS 50NS 100NS )
+
+seno:
+General form:
+SIN (VO VA FREQ TD THETA)
+Examples:
+VIN 3 0 SIN ( 0 1 100MEG 1NS 1E10 )

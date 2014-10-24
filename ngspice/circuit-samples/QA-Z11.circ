@@ -1,0 +1,18 @@
+Circuitos Elétricos II - Experimento X : Quadripolos
+
+*cálculo de QA para Z11: Fonte 2 em aberto
+
+V1 1 0 DC 5
+
+
+R1A 1 0 10.029k
+
+R2A 1 2 2.029k
+
+R3A 2 0 2.029k
+
+.tran 1e-6 1e-5
+
+
+
+

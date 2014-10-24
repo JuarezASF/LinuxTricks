@@ -1,0 +1,26 @@
+
+Para descampactar arquivos:
+	zip:		gunzip nomedoarquivo.zip
+
+	rar:		unrar x nomedoarquivo.rar
+
+	tar:		tar -xvf nomedoarquivo.tar
+
+	tar.gz:		tar -vzxf nomedoarquivo.tar.gz
+
+	bz2:		bunzip nomedoarquivo.bz2
+
+	tar.bz2:	tar -jxvf nomedoarquivo.tar.bz2 
+
+*não adianta tentar decotar os parâmetros, só copie e cole msm
+
+
+    PARA COMPACTAR ARQUIVOS PELO TERMINAL:
+
+        tar -zcf nome_arq.tar nome_dir_ou_arq_a_ser_compactado
+        
+        tar.gz: primeiro cria o tar com o comando acima
+        depois manda:
+            gzip -9 nomedoarquivo.tar
+
+

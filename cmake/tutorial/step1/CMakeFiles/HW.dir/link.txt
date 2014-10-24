@@ -1,0 +1,1 @@
+/usr/bin/gcc      CMakeFiles/HW.dir/HW.c.o  -o HW -rdynamic 

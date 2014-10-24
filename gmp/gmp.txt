@@ -1,0 +1,40 @@
+GMP é uma biblioteca para C/C++ para trabalhar com grandes
+números(eles dizem que tão grandes quanto a memória da
+máquina permitir).
+
+instação:
+
+-baixe o .tar.bz2 de:
+    http://gmplib.org/
+-instale a bibliotexa m4 com:
+      sudo apt-get install m4
+-descompacte o arquivo e cd para a pasta
+-crie arquivos de instalação;
+    ./configure --enable-cxx
+    *adicio esse flag para habilitar interface c++
+-make
+    make
+-check
+    make check
+-instale
+    sudo make install
+
+-para compilar um código é necessário adicionar os flags na
+compilação:
+para c:  gcc myprogram.c -lgmp
+para c++: g++ mycxxprog.cc -lgmpxx -lgmp
+
+-inclua o header: 
+em c: 
+   #include <stdio.h>
+    #include <gmp.h>
+em c++:
+    #include<libgmpxx>
+
+-é necessário incluir o caminho da biblioteca na variável do
+sistema. o caminho default de instalação é /usr/local/lib
+faça isso com:
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+
+---------------------------------------
+adicionado por Juarez A.S.F. em 5 de novembro de 2013

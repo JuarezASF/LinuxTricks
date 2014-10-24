@@ -1,0 +1,22 @@
+Circuitos Eletricos 2 - Experimento IX : Transformada de Laplace
+
+*modelo para fonte salto em analise transiente:
+*PULSE ( V1 V2 TD TR TF PW PER )
+*potencial baixo, alto, delay time, risetime, fall time, pulse with periodo
+
+V 1 0 DC pulse(0 5 0 1u 1u 0.05 0.10 )
+
+R 1 2 1.5k
+
+L 2 3 100m
+*l = 0, 100m, 200m, 500
+ 
+C 3 0 0.1u
+
+.tran 1e-4 0.2
+
+.control
+run
+print v(3) >> data100.dat
+exit
+.endc

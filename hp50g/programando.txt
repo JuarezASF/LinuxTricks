@@ -1,0 +1,16 @@
+programas na Hp devem ser digitados dentro de << >>.
+essas chaves podem ser digitadas com 'right shift' + '+'.
+
+-digite as chaves, entre com o programa e pressione enter
+para jogar o programa na HP.
+
+-apertando a tecla 'alpha' por duas vezes a calculadora
+entraa em modo de 'digitação de letras' até que a tecla
+alpha seja apertada novamente.
+
+-digite o nome para salvar o programa e jogue na pilha
+
+-aperte 'sto' para salvar o programa no nome desejado.
+
+-o programa pode ser acessado no menu VAR(tecla no mesmo
+lugar que 'J')

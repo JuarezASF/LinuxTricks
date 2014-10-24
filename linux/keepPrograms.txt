@@ -1,0 +1,8 @@
+If you want a list of programs that you have installed so you can install them on the fresh Ubuntu install you can use
+
+sudo dpkg --get-selections > file
+This will save the list of packages to file and after the installation you can do
+
+sudo dpkg --set-selections < file
+sudo apt-get dselect-upgrade
+This will install all those packages that you previously had

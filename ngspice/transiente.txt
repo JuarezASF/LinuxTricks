@@ -1,0 +1,10 @@
+----------------------------------------------------------
+Análise transiente e de frequencia
+----------------------------------------------------------
+análise transiente
+tran dx end
+incremento e tempo final
+
+análise ac(variando a frequencia)
+ ac ( DEC | OCT | LIN ) N FStart FEnd. 
+ 

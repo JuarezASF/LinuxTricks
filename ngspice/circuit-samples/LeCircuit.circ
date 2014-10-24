@@ -1,0 +1,33 @@
+Circuitos Elétricos 2 - Experimento VIII : Transformada de Fourrier
+
+*modelo para fonte senoidal em análise transiente:
+*		V1 + - DC sin(V0 Va freq)
+*	+ e -: terminais de + e -
+*	V0: offset
+*	Va: amplitude
+
+V1 1 0 DC sin(0 1 50kHz)
+R1 1 2 50
+*R1 é a resistencia interna da fonte V1
+
+V2 3 2 DC sin(0 1.5 10kHz)
+R2 3 4 50
+
+V3 5 4 DC sin(0 2.0 20kHz)
+R3 5 6 50
+
+
+V4 7 6 DC sin(0 3.0 30kHz)
+R4 7 8 50
+
+
+V5 9 8 DC sin(0 4.0 40kHz)
+R5 10 9 50
+
+Rr 10 0 10.029k
+*carga resistiva
+
+
+.tran 1e-6 1e-4
+
+.fourier 10k v(10)

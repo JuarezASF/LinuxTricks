@@ -1,0 +1,32 @@
+Existem algumas formas de resolver sistemas de equações,
+cada um apopriado para uma função.
+
+-para sistemas lineares use 'linear solver'(no menu
+s.slv)[left shift 7]
+
+    1)entre com o sistema ema forma de matrix
+    2)entre com um vetor contendo as variáveis a serem
+    resolvidas
+    3)chame o resolvedor
+
+-você pode também inverter a matrix manualmente
+
+-para sistemas não lineares use MSLV(no mesmo menu)
+    1) faça como em 1 e 2 do resolvedor linear
+    2)o MSLV precisa de um chute inicial. entre com este
+    em forma de vetor
+    3)chame o MSLV
+    *os números que aparecem em cima indicam o valor atual
+    e o erro da iteração.
+    **chutes ruims podem levar a um tempo muito longo de
+    cálculo. Pense bem num chute!
+
+    ------------------------
+    para construir os vetores com as equações:
+    -entre com as equações separadamente. entre ''
+    -digite o número de equações(um inteiro)
+    -RS P(= CAT) e procure '->Arry'
+
+    --------------
+    escrevendo matrizes rapidamente
+    -use o MTRW (mesma tecla que o equation writter)

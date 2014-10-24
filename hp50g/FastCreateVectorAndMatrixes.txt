@@ -1,0 +1,20 @@
+Seguindo o tutorial em: https://www.youtube.com/watch?v=g-pO8X8k8pg&list=PL1-PpkqcSWX53vsPaZaFWgvVF26ewosH6
+
+1. primeiramente entramos com os elementos na matriz. Primeiro os da primeira linha, depois os da segunda e assim por diante.
+Ex.: para entrar 
+| 1 2 |
+| 3 4 |
+
+entre: 
+1
+2
+3
+4
+
+2.
+-entre com a dimensão da matriz entre "{}"
+ex.: para a matriz acima, entre:
+{2,2}
+-se você quer criar apenas um vetor, basta entra o número de linhas oa final(sem {})
+
+3. Agora vá em: prog -> type -> ->Arry

@@ -1,0 +1,1 @@
+/home/juarez/GitHuB/LinuxTricks/cmake/tutorial/step1/CMakeFiles/HW.dir

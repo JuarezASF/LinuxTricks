@@ -1,0 +1,24 @@
+A prgramação fica mais clara quando damos nome as valores.
+Descrevemos aqui como pedir para o usuário entrar com alguns valores, associar esses
+valores com variáveis locais e então fazer cálculos com essas variáveis locais.
+
+exemplo:
+-----------------------
+<<
+"Vt R1 R2" PROMP
+-> V1 R1 R2
+	<<
+	'VtxR1/(R1+R2)' EVAL
+	'V1' ->TAG
+	'VtxR3/(R1+R2)' EVAL
+	'V2' ->TAG
+	>>	
+>>
+------------------------
+notas:
+	**EVAL: ocupa o mesmo lugar que a tecla N
+	**->: é acessado com RS + 0
+	**As variáveis criadas dentro de '<<>>' com o comando -> são locais
+		*isto é, elas não vão aparecer no menu VAR depois da execução
+	**O usuário deve entrar com os valores de V1,R1 e R2 separados por espaço
+		então ele deve apertar CONT (LS + ON)

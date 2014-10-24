@@ -1,0 +1,61 @@
+Usando o loop for no gnuplot:
+
+existem duas formas:
+
+	-fazendo o loop variando um inteiro:
+		plot for [var = start : end {:increment}]
+
+	-fazendo o loop através de um string:
+		plot for [var in "some string of words"]
+
+exemplo para o primeiro caso
+retirado de
+http://gnuplot-tricks.blogspot.com.br/2010/01/plot-iterations-and-pseudo-files.html
+
+-----------início do exemplo
+
+reset
+f(x,a) = exp(-(x-a)*(x-a)/(1+a*0.5))+0.05*rand(0)
+#define a função gaussiana em função de um parâmetro a
+
+title(n) = sprintf("column %d", n)
+
+set table 'iter.dat'
+
+plot [0:20] '+' using
+(f($1,1)):(f($1,2)):(f($1,3)):(f($1,4)):(f($1,5)):(f($1,6))
+w xyerror
+
+
+#imprime no arquivo 'iter.dat' a função em 6 colunas, cada
+#uma com um parâmetro diferente
+
+#esse print usa o arquivo '+' 
+#esse arquivo é usado para usar o 'using' com plot de
+#funções
+
+unset table
+
+set yrange [0:15]
+plot for [i=1:6] 'iter.dat' u 0:(column(i)+2*i) w l lw 1.5
+t title(i)
+
+
+
+-------------------------fim do exemplo
+
+
+veja outro exemplo usando '+':
+
+reset
+unset colorbox
+unset key
+set xrange [0:10]
+set cbrange [0:1]
+plot '+' using ($1):(sin($1)):(0.5*(1.0+sin($1))) with
+lines lw 3 lc palette, \
+'+' using ($1):(sin($1)+2):($1/10.0) with lines lw 3 lc
+palette
+
+
+

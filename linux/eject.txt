@@ -1,0 +1,7 @@
+use o comando 'eject' para ejetar o driver de dvd apartir do
+terminal
+
+eject -n: não ejeta, apenas mostra os drivers encontrados
+
+eject -h: descrever brevemente as funcionalidades do
+programa

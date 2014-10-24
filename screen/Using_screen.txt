@@ -1,0 +1,70 @@
+Screen é um programa para gerenciar terminais:
+
+os comandos iniciam-se sempre com 'ctrl+a':
+
+para configurar os sreem modifique o arquivo .screenrc na pasta home
+
+o arquivo padrão se encontra em: /usr/local/etc/screenrc
+o arquivo que deve ser editado é ~/.screenrc
+
+-da primeira vez que rodar digite:
+	tset
+	para configurar o terminal(não sei bem
+	se no próprio screen ou se no bash comum)
+	(não se se tem diferença) 
+
+-abrir nova janela(com shell) e mudar para ela
+	ctrl a + c
+-abrindo uma janela com determinado programa:
+	dentro de uma janela scren digite:
+		screen programa
+ 
+-Para uma visualização rápida de uma lista de comandos digite :
+	ctrl a + ?		
+
+-para mudar de janela:
+	^a + a : muda de janela
+	digite ^a + w: para listar as janelas abertas
+	digite: ^a número: para mudar para a janela desejada
+	^a ' : (aspa simples) seleciona a tela para o qual mudar
+	^a " : (aspas duplas) abre um menu com a opção da janelas abertas
+	^a n: muda para a próxima janela
+	^a p <ou backspace>: muda mara a janela anterior
+	^a N: mostra o nome da janela atual
+
+-dando um nome para a janela: 
+	^a A: é o nome que aparece quando chama-se a janela
+
+-limpa a tela:
+	^a C (c maiúsculo)
+
+- apaga a janela auta:
+	^a k(para kill)
+
+-para dividir a tela(split):
+	^a S: (s maíusculo!) o s minúsculo faz outra coisa!
+
+-fecha tudo e termina o screen:
+	^a /
+
+-enter comand line:
+	^a :
+
+- detach:
+	você pode deixar um programa rodando e fechar uma janela
+	com detach.
+	^a d
+- para retach:
+	digite screen -ls para exibir uma lista de trabalhos deixados em aberto 
+	digite screen -r nome.da.janela para iniciar uma janela logado 
+	^a 
+	faça isso com ctrl
+
+- copiando de uma janela para outra:
+	^a esc para entrar em modo de copia
+	-coloque o cursor onde deve começar a cópia e aperte enter
+	-selecione e pressoine enter
+	^a ] para colar no lugar desejado
+
+-abrindo seção com tal nome:
+	screen -S session name

@@ -1,0 +1,43 @@
+para que esse programa apareça na lista de programas
+deve ser ciado um arquivo 'nomeDoPrograma.desktop'. Esse programa deve estar na pasta
+/usr/share/applications/   
+ Exemplo para o eclipse:
+
+----------------------------
+[Desktop Entry]
+Version=1.0
+Name=Eclipse
+GenericName=C++ JAVA IDE
+
+Exec=/home/juarez408/Code/IDE/Eclipse/eclipse
+Terminal=false
+Icon=/home/juarez408/Code/IDE/Eclipse/icon.xpm
+Type=Application
+Categories=TextEditor;IDE;Development
+X-Ayatana-Desktop-Shortcuts=NewWindow
+--------------------
+
+
+PARA CRIAR UM ÍCONE
+----------------------
+To create Desktop shortcuts in Ubuntu,gnome-panel package is required first.
+
+Open Terminal. To open terminal click the Dash home from Unity launcher. And type terminal in the search field. And click Terminal.
+
+Type the below code in terminal and hit enter.
+
+sudo apt-get install --no-install-recommends gnome-panel
+Then type below code in terminal and hit enter
+
+gnome-desktop-item-edit ~/Desktop/ --create-new
+The create launcher window will pop-up,Type application name in the name field and type application name or path or browse in the command field. And click OK button.
+
+gnome-desktop-item-edit
+
+Example: CinePaint
+
+Now check your desktop for the shortcut.
+
+desktop shortcut
+
+If you want your shortcut to appear in the Unity launcher panel (the pop-out one on the left), you can drag it there from the desktop.

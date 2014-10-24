@@ -1,0 +1,277 @@
+----------------------------------------------------------
+funcionamento básico
+----------------------------------------------------------
+
+Basically, SPICE operates like this:
+
+    1. Describe a circuit in a text file (“.cir” extension) called a netlist OR draw the circuit using graphical symbols on a schematic page. There are plenty of SPICE netlist files ready to run in the Circuit Collection.
+
+    2. Run a simulation. SPICE reads the netlist and then performs the requested analysis: AC, DC, or TRANSIENT RESPONSE. The results are stored in a text output file (“.out” extension) or a binary data file.
+
+    3. View the results of the simulation in a text output file ( “.out” ) using a text editor. Most SPICE programs provide a graphical viewer to plot the waveforms stored in the binary data file.
+
+-----------------------
+    1. Draw the circuit and number each node.
+
+    2. Label each component and give it a value.
+
+    3. Create a text file (netlist) listing all of the components and node connections.
+
+    4. Decide on the type of analysis you want performed (AC, Transient, DC, Noise, etc.) and include the appropriate statements. Run the simulation and view the results.
+
+É recomendável aprender a usar o spice por netlists. Elas são descrições dos circuitos.
+
+'Ground is the only exception whose node is always numbered 0.'
+
+aqui vai um exemplo:
+-----------------------
+LPFILTER.CIR - SIMPLE RC LOW-PASS FILTER
+*
+VS	1	0	AC	1	SIN(0VOFF 1VPEAK   2KHZ)
+*
+R1	1	2	1K
+C1	2	0	0.032UF
+*
+* ANALYSIS
+.AC 	DEC 	5 10 10MEG
+.TRAN 	5US  500US
+*
+* VIEW RESULTS
+.PRINT	AC 	VM(2) VP(2)
+.PRINT	TRAN 	V(1) V(2)
+*
+.PROBE
+.END
+-----------------------
+
+ As you can see, much of the netlist is intuitively obvious: name a component, designate the nodes where it's connected, and give it a value. For example,
+
+    RS    1     2    1000
+
+describes a 1000 ohm resistor connected between nodes 1 and 2.Just follow a few rules - all resistors names begin with R, capacitors with C, voltage sources with V, etc. 
+mais comandos em http://www.ecircuitcenter.com/SPICEsummary.htm
+
+ SPICE has many voltage sources available: SINE, PULSE, AC, DC, etc. For this example, the voltage source statement has two functions.
+
+    VS   1    0   AC   1  SIN(0V 0.2V  10kHz)
+
+First, it creates an AC signal source between nodes 1 and 0 for AC (frequency) Analysis. Second, it also generates a sinewave source SIN for the Transient (time) Analysis. This sine wave has a DC offset of 0 V, a peak amplitude of 0.2 V and a frequency of 10 kHz. 
+
+
+
+    .AC    DEC  5    10    10MEG
+
+tells SPICE to run an AC Analysis at 5 points per DECade in the frequency range from 10 Hz to 10 MHz. The command
+
+    .TRAN   0.001MS    0.2MS
+
+requests a Transient (time) Analysis TRAN for a duration of 0.2 ms and prints out the results at 0.001 mS intervals.
+
+PSPICE will save the variables for the plot window if you include the
+
+    .PROBE
+
+statement in the netlist.
+
+You can display the magnitude, real part, imaginary, part, phase, etc of the variables for the AC Analysis. Just add the appropriate suffix as follows:
+Voltage 	Current 	Variable
+V(  ) 	I( ) 	(no suffix) Magnitude
+VM( ) 	IM( ) 	Magnitude
+VP( ) 	IP( ) 	Phase
+VR( ) 	IR( ) 	Real Part
+VI( ) 	II( ) 	Imaginary Part
+
+
+
+duas linhas exenciais:
+
+• The first line in the input file must be the title, which is the only comment line that does
+not need any special character in the first place.
+• The last line must be .end.
+
+The order of the remaining lines is arbitrary (except, of course, that continuation lines must
+immediately follow the line being continued). 
+ Leading white spaces in a line are ignored, as well as empty lines.
+
+C Capacitor
+D Diode
+
+E Voltage-controlled voltage source (VCVS)
+
+F Current-controlled current source (CCCs)
+
+G Voltage-controlled current source (VCCS)
+
+H Current-controlled voltage source (CCVS)
+ 
+L 	Inductor
+
+R 	Resistor
+
+V 	Voltage source
+ 
+X
+ 
+ 
+
+Each node in the circuit must have a dc path to ground.
+----------------------------------------------------------
+comentários
+----------------------------------------------------------
+
+ngspice supports comments that begin with single characters ’;’ or double characters ’$ ’ or ’//’
+or ’--’.
+----------------------------------------------------------
+--------------------------sub-circuitos-------------------
+----------------------------------------------------------
+Example:
+* The following is the instance card:
+*
+xdiv1 10 7 0 vdivide
+* The following are the subcircuit definition cards :
+*
+. subckt vdivide 1 2 3
+r1 1 2 10 K
+r2 2 3 5 K
+. ends
+The above specifies a subcircuit with ports numbered “1”, “2” and “3”:
+• Resistor ”R1” is connected from port “1” to port “2”, and has value 10 kOhms.
+• Resistor “R2” is connected from port “2” to port “3”, and has value 5 kOhms.
+The instance card, when placed in an ngspice deck, will cause subcircuit port “1” to be equated
+to circuit node “10”, while port “2” will be equated to node “7” and port “3” will equated to
+node “0”.
+----------------------------------------------------------
+			nós gloabais 
+----------------------------------------------------------
+Examples:
+.GLOBAL gnd vcc
+Nodes defined in the .GLOBAL statement are available to all circuit and subcircuit blocks inde-
+pendently from any circuit hierarchy.
+----------------------------------------------------------
+			incluindo
+----------------------------------------------------------
+
+General form:
+.INCLUDE filename
+Examples:
+.INCLUDE /users/spice/common/bsim3−param.mod
+
+
+----------------------------------------------------------
+			PARÂMETROS
+----------------------------------------------------------
+
+.param<ident>=<expr>
+ <ident>=<expr>....
+Examples:
+.param pippo = 5
+.param po = 6 pp = 7.8 pap ={AGAUSS( pippo,1,1.67)}
+.param pippp= {pippo+pp}
+.param p ={pp}
+.param pop = ’pp+p’
+This line assigns numerical values to identifiers. More than one assignment per line is possible
+using a space as separator. Parameter identifier names must begin with an alphabetic character.
+The other characters must be either alphabetic, a number, or ! # $ % [ ] _ as special charac-
+ters. The variables time, temper, and hertz (see 5.1.1) are no valid identifier names. Other
+restrictions on naming conventions apply as well, see 2.8.6.
+
+
+Expression defining a parameter have to be put into braces {p+p2},
+alternatively into single quotes ’AGAUSS(pippo, 1, 1.67)’.
+
+All subcircuit and model names are considered global and must be unique
+The .param symbols
+that are defined outside of any “.subckt” ... “.ends” section are global.
+
+
+----------------------------------------------------------
+			FUNÇÃO
+----------------------------------------------------------
+
+With this line a function may be defined. The syntax of its expression is equivalent to the
+expression syntax from the .param line (2.8.5).
+General form:
+.func <ident>{<expr>}
+Examples:
+.func icos(x){cos(x)−1}
+.func f(x,y){x*y}
+2.10. .CSPARAM
+ 59
+.func will initiate a replacement operation. After reading the input files, and before parameters
+are evaluated, all occurrences of the icos(x) function will be replaced by cos(x)-1. All
+occurrences of f(x,y) will be replaced by x*y. Function statements may be nested to a depth
+of t.b.d..
+----------------------------------------------------------
+RESISTORES
+----------------------------------------------------------
+
+RXXXXXXX n+ n− v a l u e < a c = v a l > <m= v a l > < s c a l e = v a l >+ <dtemp = v a l > < t c 1 = v a l > < t c 2 = v a l > < n o i s y =0|1 >
+Examples:
+R1 1 2 100
+RC1 12 17 1K
+R2 5 7 1K ac =2K
+RL 1 4 2K m=2  *múltiplos resistores de 2k entre 1 e 4
+
+Ngspice can assign a resistor instance a different value for AC analysis, specified using the ac
+keyword. This value must not be zero as described above.
+----------------------------------------------------------
+CAPACITORES
+----------------------------------------------------------
+
+
+General form:
+CXXXXXXX n+ n− < v a l u e > <mname> <m= v a l > < s c a l e = v a l > <temp= v a l >
++ <dtemp = v a l > < t c 1 = v a l > < t c 2 = v a l > < i c = i n i t _ c o n d i t i o n >
+Examples:
+CBYP 13 0 1UF
+COSC 17 23 10U IC =3V
+----------------------------------------------------------
+	indutor	
+----------------------------------------------------------
+
+General form:
+LYYYYYYY n+ n− < v a l u e > <mname> < n t = v a l > <m= v a l > < s c a l e = v a l > <temp= v a l >
++ <dtemp = v a l > < t c 1 = v a l > < t c 2 = v a l > <m= v a l > < i c = i n i t _ c o n d i t i o n >
+Examples:
+LLINK 42 69 1UH
+LSHUNT 23 51 10U IC = 1 5 . 7MA
+
+----------------------------------------------------------
+	indutor	acoplados
+----------------------------------------------------------
+
+ Coupled (Mutual) Inductors
+General form:
+KXXXXXXX LYYYYYYY LZZZZZZZ v a l u e
+Examples:
+K43 LAA LBB 0.999
+
+KXFRMR L1 L2 0.87 74
+
+ CHAPTER 3. CIRCUIT ELEMENTS AND MODELS
+LYYYYYYY and LZZZZZZZ are the names of the two coupled inductors, and value is the
+coefficient of coupling, K, which must be greater than 0 and less than or equal to 1. Using the
+“dot” convention, place a “dot” on the first node of each inductor.
+
+----------------------------------------------------------
+fontes de corrente/tensão
+----------------------------------------------------------
+
+General form:
+VXXXXXXX N+ N− <<DC> DC/TRAN VALUE> <AC <ACMAG <ACPHASE>>>
++ <DISTOF1 <F1MAG <F1PHASE>>> <DISTOF2 <F2MAG <F2PHASE>>>
+IYYYYYYY N+ N− <<DC> DC/TRAN VALUE> <AC <ACMAG <ACPHASE>>>
++ <DISTOF1 <F1MAG <F1PHASE>>> <DISTOF2 <F2MAG <F2PHASE>>>
+Examples:
+VCC 10 0 DC 6
+VIN 13 2 0 . 0 0 1 AC 1 SIN ( 0 1 1MEG)
+ISRC 23 21 AC 0 . 3 3 3 4 5 . 0 SFFM( 0 1 10K 5 1K)
+VMEAS 12 9
+VCARRIER 1 0 DISTOF1 0 . 1 −90.0
+VMODULATOR 2 0 DISTOF2 0 . 0 1
+I I N 1 1 5 AC 1 DISTOF1 DISTOF2 0 . 0 0 1
+
+
+
+
+

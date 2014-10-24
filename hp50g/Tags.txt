@@ -1,0 +1,9 @@
+Para associar uma tag a um valor faça:
+
+-jogar valor na pilha
+-digitar nome entre aspas simples
+- '->TAG': pode ser acessado, em prog/type
+
+*é uma boa forma de dar nome às saídas de um programa
+*ou então para indicar se ela está em graus ou radianos
+	 

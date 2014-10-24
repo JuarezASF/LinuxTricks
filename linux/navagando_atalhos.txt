@@ -1,0 +1,11 @@
+verifique em system->setting->keyboard
+a opção shortcuts
+aprenda alguns comandos já definidos por default e 
+defina os próprios atalhos.
+
+Aqui defini:
+
+ctrl + alt + t : termianal
+ctrl + alt + b : para abrir o browser (firefox)
+ctrl + alt + shift + setas : para pegar a janela slecionado e mandar
+para outro portview.

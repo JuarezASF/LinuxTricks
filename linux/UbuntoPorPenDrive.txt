@@ -1,0 +1,7 @@
+INSTALANDO O UBUNTO VIA PENDRIVE 
+
+baixe a iso do site ubunto br
+utilie o programa 'startup disk creator' do próprio Ubunto para formatar e crear o pen drive de instalação
+
+lembre-se claro de salvar preveiamente o que for importante do pendrive.
+  

@@ -1,0 +1,8 @@
+Ktouch:
+
+é um programa para treinar a digitação.
+Ele possui algumas lições pré definidas e é possível criar
+novas lições.
+Nesse pasta coloco algumas liçoes editadas.
+Os textos são em geral retirados de:
+http://sitenotadez.net/digitacao-concursos/

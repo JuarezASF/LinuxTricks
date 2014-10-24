@@ -1,0 +1,19 @@
+----------------------------------------------------------
+rodando o ngspice
+----------------------------------------------------------
+chame ngspice em terminal
+
+com o programa rodando:
+-source file
+	da load na netlist
+-listing
+	lista o que foi lido
+-run
+	rodas os comandos
+plot v(1)
+	plota o dado v(1)
+print v(1) >> file.dat
+	imprime os dados em file.dat
+print db(v(1))
+
+
