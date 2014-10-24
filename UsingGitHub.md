@@ -33,7 +33,7 @@ Criando chave ssh
 
 
 <a name="Utilização"/>
-##Utilização (Autores: Rafael e Ataias)
+##Utilização 
 
 Para criar um novo repositório no seu computador e adicionar um servidor remoto:
 
@@ -72,3 +72,24 @@ Com isso você pode trabalhar sem fazer modificações no seu branch master. Uma
 	git checkout master
 	git merge nomedobranch
 	git commit -m "mensagem sobre o merge"
+	
+#Removendo versões anteriores da pasta .git.
+Usualmente versões anteriores são úteis para se recuperar de problemas no desenvolvimento de um projeto, no entanto, depois de terminado muitas vezes somente nos importamos com a versão mais recente do commit e é interessante eliminar as versões anteriores. Para isso:
+    rm -rf .git
+    git init
+    git add .
+    git commit -m "Initial commit"
+    git remote add origin <github-uri>
+    git push -u --force origin master
+    
+Se você entrar no github verá que esse é o único commit disponível.
+
+# Sobrescrevendo as alterações locais:
+    git fetch --all
+    git reset origin/master # última versão
+
+# Retornando para alguma versão especifica
+    git reset "Código do commit"
+
+# Apagar arquivos do github sem apagar na máquina
+    git rm --cached "nomeArquivo"
