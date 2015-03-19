@@ -1,0 +1,212 @@
+set nocompatible              " required
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" Vundle Packages 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+filetype off                  " required
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+    Plugin 'gmarik/Vundle.vim'
+    Plugin 'godlygeek/tabular'
+    Plugin 'plasticboy/vim-markdown'
+    Plugin 'Valloric/YouCompleteMe'
+call vundle#end()            " required
+filetype plugin indent on    " required
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => General
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Sets how many lines of history VIM has to remember
+set history=500
+"set undo levels
+set undolevels=500
+"set cmd height
+set cmdheight=2
+" Enable filetype plugins
+filetype plugin on
+filetype indent on
+" Set to auto read when a file is changed from the outside
+set autoread
+" With a map leader it's possible to do extra key combinations
+let mapleader = ","
+let g:mapleader = ","
+" Fast saving
+nmap <leader>w :w!<cr>
+"Display linenumbers
+set number
+"ignore some filetypes
+set wildignore=*.swp,*.bak,*.pyc,*.class
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => My Mappings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"This will call resize command:
+map <leader>r :resize 10<cr>
+"format paragraph
+map <leader>f gqap
+vmap Q gq
+nmap Q gqap
+"reload vimrc
+command! ReloadVimRC :so $MYVIMRC
+"desable folding for markdown plugin
+let g:vim_markdown_folding_disabled=1
+"the laziest thing ever done
+nnoremap ; :
+"so I don't use the arrows anymore
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Latex-Suite
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set grepprg=grep\ -nH\ $*
+let g:tex_flavor='latex'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Color 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if has("gui_running")
+   " Maximize gvim window.
+    set lines=999 columns=999
+endif
+colorscheme pablo
+colorscheme solarized
+colorscheme molokai
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => VIM user interface
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Always show current position
+set ruler
+" Configure backspace so it acts as it should act
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
+" Ignore case when searching
+set ignorecase
+" When searching try to be smart about cases 
+set smartcase
+" Makes search act like search in modern browsers
+set incsearch
+" Show matching brackets when text indicator is over them
+set showmatch
+" How many tenths of a second to blink when matching brackets
+set mat=2
+" No annoying sound on errors
+set noerrorbells
+set novisualbell
+set t_vb=
+set tm=500
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Fonts
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+syntax enable
+" Set utf8 as standard encoding and en_US as the standard language
+set encoding=utf8
+" Use Unix as the standard file type
+ set ffs=unix,dos,mac
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"=> Files, backups and undo
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Turn backup off, since most stuff is in SVN, git et.c anyway...
+set nobackup
+set nowb
+set noswapfile
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"=> Text, tab and indent related
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Use spaces instead of tabs
+set expandtab
+" 1 tab == 4 spaces
+set shiftwidth=4
+set tabstop=4
+set lbr
+set textwidth=90
+""""""""""""""""""""""""""""""
+" => Visual mode related
+"""""""""""""""""""""""""""""""
+" Visual mode pressing * or # searches for the current selection
+vnoremap <leader>/ :call VisualSelection('f','')<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"=> Moving around, tabs, windows and buffers
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
+map <space> /
+"Map f7 and F8 to tab next and tab prev
+map <F8> :tabn<cr>
+map <F7> :tabp<cr next and tab prevmap <F8> :tabn<cr>
+map <F7> :tabp<cr>
+" Smart way to move between windows
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-h> <C-w>h
+map <C-l> <C-w>l
+""""""""""""""""""""""""""""""
+" => Status line
+"""""""""""""""""""""""""""""""
+"Always show the status line
+set laststatus=2
+" Format the status line
+set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
+set statusline=%<%f%m\ \[%{&ff}:%{&fenc}:%Y]\ %{getcwd()}\ \ \[%{strftime('%Y/%b/%d\ %a\ %I:%M\ %p')}\]\ %=\ Line:%l\/%L\ Column:%c%V\ %P
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Spell checking
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set spell spelllang=en_us
+" Pressing ,ss will toggle and untoggle spell checking
+map <leader>ss :setlocal spell!<cr>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Helper functions
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! CmdLine(str)
+    exe "menu Foo.Bar :" . a:str
+    emenu Foo.Bar
+    unmenu Foo
+endfunction 
+
+function! VisualSelection(direction, extra_filter) range
+    let l:saved_reg = @"
+    execute "normal! vgvy"
+
+    let l:pattern = escape(@", '\\/.*$^~[]')
+    let l:pattern = substitute(l:pattern, "\n$", "", "")
+
+    if a:direction == 'b'
+        execute "normal ?" . l:pattern . "^M"
+    elseif a:direction == 'gv'
+        call CmdLine("Ack \"" . l:pattern . "\" " )
+    elseif a:direction == 'replace'
+        call CmdLine("%s" . '/'. l:pattern . '/')
+    elseif a:direction == 'f'
+        execute "normal /" . l:pattern . "^M"
+    endif
+
+    let @/ = l:pattern
+    let @" = l:saved_reg
+endfunction
+
+" Returns true if paste mode is enabled
+function! HasPaste()
+    if &paste
+        return 'PASTE MODE  '
+    en
+    return ''
+endfunction
+
+" Don't close window, when deleting a buffer
+command! Bclose call <SID>BufcloseCloseIt()
+function! <SID>BufcloseCloseIt()
+   let l:currentBufNum = bufnr("%")
+   let l:alternateBufNum = bufnr("#")
+
+   if buflisted(l:alternateBufNum)
+     buffer #
+   else
+     bnext
+   endif
+
+   if bufnr("%") == l:currentBufNum
+     new
+   endif
+
+   if buflisted(l:currentBufNum)
+     execute("bdelete! ".l:currentBufNum)
+   endif
+endfunction
