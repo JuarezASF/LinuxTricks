@@ -13,17 +13,17 @@ Após isso, configure o nome de usuário e e-mail
 Este nome pode ser diferente para cada repositório, você pode configurá-lo da seguinte maneira:
 
 	cd repositorio
-	git config user.name "Billy Everyteen"
 	# Configura o nome
-	git config user.name
+	git config user.name "Billy Everyteen"
 	# Verifica o seu nome de usuário
+	git config user.name
 
 Caso não esteja utilizando ssh, pode-se salvar a senha por um período determinado, no caso abaixo, uma hora.
 
-	git config --global credential.helper cache
 	# Set git to use the credential memory cache
-	git config --global credential.helper 'cache --timeout=3600'
+	git config --global credential.helper cache
 	# Set the cache to timeout after 1 hour (setting is in seconds)
+	git config --global credential.helper 'cache --timeout=3600'
 
 Caso se deseje utilizar uma chave ssh, verifique o seguinte link:
 
