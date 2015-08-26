@@ -33,6 +33,9 @@ Usando os latex-vim depois de instalado:
 
    In selection mode, you can use `X for X in ('(', '[', '{', '$') to enclose selection in the appropriate environment
 
+   Get a complete list of two key shortcuts
+   [here](http://vim-latex.sourceforge.net/documentation/latex-suite/auc-tex-mappings.html)
+
 
    Another really cool use of latex-suite is on building labels. Before using this feature, make sure to save the file.
    Now, write \ref{} and, in insert mode with the cursos between {} press F9. Is this magic of what. Two windows should
@@ -45,6 +48,7 @@ Usando os latex-vim depois de instalado:
 
    To compile with latex-suite, use <leader>ll; the cool thing about this is that will open two windows where you can
    navigate through the errors. You can even press <leader>lv to view it
+
 
 
 

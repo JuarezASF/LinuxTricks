@@ -19,3 +19,10 @@ D = [1 2 5 0]
 syms s
 f = ilaplace(3/(s*(s^2+2*s+5)));
 pretty(f)
+
+%you can do the same for laplace transform:
+syms t
+f = 2*exp(-t)
+F = laplace(f)
+%produce Bode diagrams from coefficients of rational transfer function
+freqs([1 2], [1, 6 9])
